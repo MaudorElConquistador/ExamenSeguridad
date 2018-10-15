@@ -3,10 +3,27 @@
   <head>
     <meta charset="utf-8">
     <title>Cifrar</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!--Import materialize.css-->
+	<link type="text/css" rel="stylesheet" href="./css/materialize.min.css" media="screen,projection"/>
+	<!--Let browser know website is optimized for mobile-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   </head>
   <body>
     <form>
-
+    	<h3 class="card-panel indigo lighten-1 center-align">Registrar personas</h3>
+    	<input type="text" name="usuario" id="usr" placeholder="Inserta tu nombre de usuario">
+    	<input type="password" name="contraseña" id="con" placeholder="Inserta tu clave">
+    	<select id="opt">
+    		<option name="129">AES 129</option>
+    		<option name="192">AES 192</option>
+    		<option name="256">AES 256</option>
+    	</select>
+    	<textarea name="Mensaje" id="men"></textarea>
+    	<input type="button" onclick="enviar(event)">
     </form>
+    <script src="./javascripts/materialize.js"></script>
+  	<script src="./javascripts/materialize.min.js"></script>
+  	<script src="./javascripts/init.js"></script>
   </body>
 </html>

@@ -21,14 +21,3 @@ CREATE TABLE ReporteEnUsuario(
 );
 INSERT INTO USUARIO VALUES(nombre,password)
 ('mauricio','contraseña');
-SELECT nombre FROM usuario WHERE nombre = ?
-
-SELECT nombre FROM usuario WHERE id_user = ?
-/*en la segunda pagina tiene que poner su nombre no? para mostrarle sus mensajes
-*/
-SELECT cuerpo FROM reporte WHERE id_user = ?
-CREATE PROCEDURE getReportesdeUsuario (IN id_user)
-	BEGIN
-		DROP TEMPORARY TABLE IF EXISTS Tempprestamoinusuario;
-	    CREATE TEMPORARY TABLE Tempprestamoinusuario AS (SELECT id_reporte FROM ReporteEnUsuario WHERE id_user = id_user);
-    END$$

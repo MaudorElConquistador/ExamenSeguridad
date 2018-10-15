@@ -3,7 +3,10 @@ var funciones = {
   cifrar: data =>{
     var ciphertext = CryptoJS.AES.encrypt(data, 'secret key 12345');
     return ciphertext.toString();
-  },//listo
+    //Uno con 16 caracteres
+    //Otro con 24 caracteres
+    //Uno ultimo con 32
+  },
   decifrar: parametros =>{
     hola = [];
     hola.push(parametros.map(metercosas));
