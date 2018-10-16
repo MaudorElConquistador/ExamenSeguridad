@@ -1,16 +1,20 @@
-USE EXAMEN;
+USE EXAMENCIFRADO;
 DELIMITER $$
+DROP FUNCTION IF EXISTS getidUsuario$$
+DROP PROCEDURE IF EXISTS InsertarReporte$$
+DROP PROCEDURE IF EXISTS VerReporte$$
 
-DROP PROCEDURE IF EXISTS searchColony$$
-/*
-SELECT nombre FROM usuario WHERE nombre = ?
+CREATE FUNCTION getidUsuario(nom_usuario VARCHAR(45)) RETURNS INT
+    BEGIN
+        RETURN(SELECT id_user FROM USUARIO WHERE nombre = nom_usuario);
+    END$$
 
-SELECT nombre FROM usuario WHERE id_user = ?
+CREATE PROCEDURE InsertarReporte(IN id_usuario INT, IN cuerpo VARCHAR(100))
+    BEGIN
+       INSERT INTO REPORTE (id_user,cuerpo)VALUES(id_usuario,cuerpo);
+    END$$
 
-SELECT cuerpo FROM reporte WHERE id_user = ?
-*/
-CREATE PROCEDURE getReportesdeUsuario (IN id_user)
-	BEGIN
-		DROP TEMPORARY TABLE IF EXISTS Tempprestamoinusuario;
-	    CREATE TEMPORARY TABLE Tempprestamoinusuario AS (SELECT id_reporte FROM ReporteEnUsuario WHERE id_user = id_user);
+CREATE PROCEDURE VerReporte(IN NOM_usuario INT)
+    BEGIN
+		SELECT REPORTE.cuerpo, USUARIO.nombre FROM REPORTE INNER JOIN USUARIO ON USUARIO.id_user = REPORTE.id_user WHERE NOMBRE = NOM_usuario;
     END$$

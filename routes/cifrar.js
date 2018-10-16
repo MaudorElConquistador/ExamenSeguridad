@@ -1,7 +1,13 @@
 const CryptoJS = require("crypto-js");
 var funciones = {
   cifrar: data =>{
-    var ciphertext = CryptoJS.AES.encrypt(data, 'secret key 12345');
+    if (data.opcion = "AES 128") 
+      var ciphertext = CryptoJS.AES.encrypt(data, data.contra);
+    if (data.opcion = "AES 192") 
+      var ciphertext = CryptoJS.AES.encrypt(data, data.contra);
+    if (data.opcion = "AES 256") 
+      var ciphertext = CryptoJS.AES.encrypt(data, data.contra);
+
     return ciphertext.toString();
     //Uno con 16 caracteres
     //Otro con 24 caracteres
